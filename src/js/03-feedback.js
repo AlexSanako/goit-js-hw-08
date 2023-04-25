@@ -27,6 +27,10 @@ form.addEventListener('input', saveStateToLocalStorage);
 window.addEventListener('load', getStateFromLocalStorage);
 form.addEventListener('submit', e => {
   e.preventDefault();
+  if (!emailInput.value || !messageInput.value) {
+    alert('Please fill in all fields!');
+    return;
+  }
   const state = {
     email: emailInput.value,
     message: messageInput.value,
